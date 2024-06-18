@@ -20,12 +20,6 @@ fi
 export VAULT_USERNAME=linuskendall
 
 # ssh
-mkdir -p $HOME/.ssh/
-ln -s .ssh $HOME/.ssh/
-
-rm -fr ~/.ssh/id_rsa
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -P ""
-
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
-

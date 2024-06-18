@@ -1,0 +1,21 @@
+filetype plugin indent on  " Load plugins according to detected filetype.
+syntax enable
+
+set autoindent             " Indent according to previous line.
+set tabstop=4 expandtab shiftwidth=4 smarttab
+set number
+set hlsearch
+set incsearch
+let g:netrw_liststyle = 3
+
+
+set ttyfast                " Faster redrawing.
+set lazyredraw             " Only redraw when necessary.
+
+set splitbelow             " Open new windows below the current window.
+set splitright             " Open new windows right of the current window.
+
+set cursorline             " Find the current line quickly.
+set wrapscan               " Searches wrap around end-of-file.
+set report      =0         " Always report changed lines.
+set synmaxcol   =200       " Only highlight the first 200 columns.
