@@ -1,1 +1,4 @@
+# if we have a distribution bashrc
+[ -f "~/.bashrc.dist" ] && source ~/.bashrc.dist 
+# login shell load profile
 [ -n "$PS1" ] && source ~/.bash_profile;
