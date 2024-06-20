@@ -13,10 +13,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-
-# vault settings
-VAULT_USERNAME=linuskendall
-
 # ssh, create key and load it into ssh agent
 if [ -f "$HOME/.ssh/id_rsa" ]; then
   mkdir -p $HOME/.ssh/
