@@ -14,7 +14,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # ssh, create key and load it into ssh agent
-if [ -f "$HOME/.ssh/id_rsa" ]; then
+if ! [ -f "$HOME/.ssh/id_rsa" ]; then
   mkdir -p $HOME/.ssh/
   ssh-keygen -t rsa -b 4096 -f $HOME/.ssh/id_rsa -P ""
 fi
