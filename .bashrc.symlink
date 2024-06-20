@@ -1,4 +1,4 @@
 # if we have a distribution bashrc
-[ -f "$HOME/.bashrc.dist" ] && source $HOME/.bashrc.dist 
+[ -f "$HOME/.bashrc.dist" ] && source $HOME/.bashrc.dist;
 # login shell load profile
 [ -n "$PS1" ] && source $HOME/.bash_profile;
