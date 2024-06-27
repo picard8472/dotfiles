@@ -7,7 +7,9 @@ set number
 set hlsearch
 set incsearch
 let g:netrw_liststyle = 3
-
+set backspace = 2
+set termguicolors
+set encoding = utf-8
 
 set ttyfast                " Faster redrawing.
 set lazyredraw             " Only redraw when necessary.
