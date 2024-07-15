@@ -1,0 +1,7 @@
+[alias]
+        unpushed = log --branches --not --remotes=origin --no-walk --decorate --oneline
+        unstage = reset HEAD --
+        last = log -1 HEAD
+
+[push]
+        push.autoSetupRemote = true
