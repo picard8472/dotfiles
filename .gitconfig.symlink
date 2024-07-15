@@ -1,7 +1,12 @@
+[user]
+	name = Linus Kendall
+	email = git@linuskendall.com
+
 [alias]
         unpushed = log --branches --not --remotes=origin --no-walk --decorate --oneline
         unstage = reset HEAD --
         last = log -1 HEAD
 
 [push]
+        default = origin
         push.autoSetupRemote = true
