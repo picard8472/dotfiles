@@ -8,5 +8,4 @@
         last = log -1 HEAD
 
 [push]
-        default = origin
-        push.autoSetupRemote = true
+        autoSetupRemote = true
