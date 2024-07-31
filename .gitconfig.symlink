@@ -1,6 +1,6 @@
 [user]
-	name = Linus Kendall
-	email = git@linuskendall.com
+	name = Peter Picard
+	email = peter@mypicard.com
 
 [alias]
         unpushed = log --branches --not --remotes=origin --no-walk --decorate --oneline
