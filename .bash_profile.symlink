@@ -21,3 +21,29 @@ fi
 
 eval $(ssh-agent -s)
 ssh-add $HOME/.ssh/id_rsa
+
+alias ls='ls -GFh'
+alias ll='ls -la'
+
+# Git aliases
+alias gs='git status -s'
+alias ga='git add'
+alias gc='git commit --verbose'
+alias gca='git commit -a --verbose'
+alias gd='git diff'
+alias gds='git diff --stat'
+alias gl='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
+alias gpl='git pull'
+alias gps='git push'
+
+# User specific environment and startup programs
+export TERM="xterm" # Or Terminal.app breaks with colored prompt and Reverse-I-Search
+#Original#export PS1="\[\e[36m\]\u\[\e[m\]@\[\e[32m\]\h:\[\e[33;1m\]\w\[\e[m\]\$ "
+export PS1="[\[\e[35m\]\t \[\e[36m\]\u\[\e[m\]@\[\e[32m\]\h:\[\e[33;1m\]\w\[\e[m\]\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]]\$"
+
+# Better console colors for files and directories
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# User specific aliases and functions
+export EDITOR="vim"
