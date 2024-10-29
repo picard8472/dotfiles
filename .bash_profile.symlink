@@ -36,6 +36,10 @@ alias gl='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\
 alias gpl='git pull'
 alias gps='git push'
 
+##########
+# Triton #
+##########
+export SSH_DEFAULT_USER="peterpicard"
 alias s='$HOME/better_ssh.sh'
 export VAULT_ADDR=https://vault-nyc1.rpcpool.wg:8200
 export VAULT_CACERT=/workspaces/rpcpool/vault-ca-mac.pem
