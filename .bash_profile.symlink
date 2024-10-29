@@ -40,7 +40,7 @@ alias gps='git push'
 # Triton #
 ##########
 export SSH_DEFAULT_USER="peterpicard"
-alias s='$HOME/better_ssh.sh'
+alias s='$HOME/bin/better_ssh.sh'
 export VAULT_ADDR=https://vault-nyc1.rpcpool.wg:8200
 export VAULT_CACERT=/workspaces/rpcpool/vault-ca-mac.pem
 export VAULT_USERNAME=peterpicard
