@@ -39,7 +39,7 @@ alias gps='git push'
 ######
 # TO #
 ######
-eval "$(ssh-agent -s)" && ssh-add ~/.ssh/to
+ssh-add ~/.ssh/to
 export SSH_DEFAULT_USER="peterpicard"
 alias s='$HOME/bin/better_ssh.sh'
 export VAULT_ADDR=https://vault-nyc1.rpcpool.wg:8200
