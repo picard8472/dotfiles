@@ -21,3 +21,11 @@ runrd() {
 runcmdrd() {
   ./run-playbook-rd.sh "$@" | ct
 }
+
+# Hand off interactive bash shells to zsh.
+# Guarded to bash + interactive so scripts and `bash -c` are unaffected,
+# and so zsh (which sources this via .zshenv) never loops back into itself.
+if [ -n "$BASH_VERSION" ] && [ -t 1 ] && command -v zsh >/dev/null 2>&1; then
+  export SHELL="$(command -v zsh)"
+  exec zsh
+fi
