@@ -22,9 +22,13 @@ runcmdrd() {
   ./run-playbook-rd.sh "$@" | ct
 }
 
-# Hand off interactive bash shells to zsh.
-# Guarded to bash + interactive so scripts and `bash -c` are unaffected,
-# and so zsh (which sources this via .zshenv) never loops back into itself.
+# Set zsh as the login shell once — no-op after it's set, never blocks or errors.
+if command -v zsh >/dev/null 2>&1 \
+   && [ "$(getent passwd "$USER" 2>/dev/null | cut -d: -f7)" != "$(command -v zsh)" ]; then
+  sudo -n chsh -s "$(command -v zsh)" "$USER" 2>/dev/null || true
+fi
+
+# Hand interactive bash off to zsh (covers the case chsh can't persist).
 if [ -n "$BASH_VERSION" ] && [ -t 1 ] && command -v zsh >/dev/null 2>&1; then
   export SHELL="$(command -v zsh)"
   exec zsh
