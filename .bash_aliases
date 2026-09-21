@@ -22,6 +22,15 @@ runcmdrd() {
   ./run-playbook-rd.sh "$@" | ct
 }
 
+prep_env() {
+  echo "Prep started..."
+  cd "$HOME" && mkdir -p git && cd git
+  test -d rpcpool || gh repo clone rpcpool/rpcpool
+  test -d terraform || gh repo clone rpcpool/terraform
+  cd -
+  echo "Prep done."
+}
+
 # Set zsh as the login shell once — no-op after it's set, never blocks or errors.
 if command -v zsh >/dev/null 2>&1 \
    && [ "$(getent passwd "$USER" 2>/dev/null | cut -d: -f7)" != "$(command -v zsh)" ]; then
