@@ -24,10 +24,28 @@ runcmdrd() {
 
 prep_env() {
   echo "Prep started..."
-  cd "$HOME" && mkdir -p git && cd git
-  test -d rpcpool || gh repo clone rpcpool/rpcpool
-  test -d terraform || gh repo clone rpcpool/terraform
-  cd -
+
+  cd "$HOME" || return 1
+  mkdir -p git
+  cd git || return 1
+
+  gh api --paginate \
+    -H "Accept: application/vnd.github+json" \
+    'search/commits?q=author:@me+org:rpcpool' \
+    --jq '.items[].repository.full_name' |
+    sort -u |
+    while read -r repo; do
+      dir="${repo##*/}"
+
+      if [[ -d "$dir" ]]; then
+        echo "Already exists: $repo"
+      else
+        echo "Cloning: $repo"
+        gh repo clone "$repo"
+      fi
+    done
+
+  cd - >/dev/null || return 1
   echo "Prep done."
 }
 
