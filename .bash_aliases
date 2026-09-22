@@ -12,6 +12,9 @@ alias gpl='git pull'
 alias gplm='git pull --tags origin main'
 alias gps='git push'
 
+git config --global user.email "$EMAIL_GIT"
+git config --global user.name "$USERNAME_GIT" 
+
 ans() {
   ansible "$@" | ct
 }
