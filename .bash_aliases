@@ -45,6 +45,7 @@ prep_env() {
       else
         echo "Cloning: $repo"
         gh repo clone "$repo"
+        pre-commit install || true
       fi
     done
 
