@@ -176,8 +176,11 @@ _orca_control() (
     return 0
   fi
   if [[ ! -x /opt/orca/squashfs-root/AppRun ]]; then
-    echo "Orca is not installed. Run install_orca, then start_orca." >&2
-    return 1
+    install_orca
+    if [[ ! -x /opt/orca/squashfs-root/AppRun ]]; then
+      echo "Orca installation failed." >&2
+      return 1
+    fi
   fi
   tailscale_ip=$(tailscale ip -4) || return 1
   [[ -n "$tailscale_ip" ]] || return 1
@@ -223,6 +226,8 @@ save_orca_config() {
 if [[ "${ORCA_AUTOSTART:-1}" == 1 ]]; then
   start_orca
 fi
+
+test -d ~/git/rpcpool || prep_env
 
 # Set zsh as the login shell once — no-op after it's set, never blocks or errors.
 if command -v zsh >/dev/null 2>&1 \
