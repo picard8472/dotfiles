@@ -34,8 +34,8 @@ prep_env() {
   echo "Prep started..."
 
   cd "$HOME" || return 1
-  mkdir -p git
-  cd git || return 1
+  mkdir -p /workspaces/git && ln -s /workspaces/git ~/git
+  cd ~/git || return 1
 
   gh api --paginate \
     -H "Accept: application/vnd.github+json" \
