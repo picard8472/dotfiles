@@ -22,7 +22,7 @@ git config --global user.name "$USERNAME_GIT"
 
 
 # In superbank, use the gh login token, not the Coder app token, which has no access to solana-rpc.
-gh() { case "$PWD" in /workspaces/git/superbank*) GH_TOKEN_NO_CODER=1 command gh "$@";; *) command gh "$@";; esac; }
+# gh() { case "$PWD" in /workspaces/git/superbank*) GH_TOKEN_NO_CODER=1 command gh "$@";; *) command gh "$@";; esac; }
 
 # In superbank, git uses the gh login token, not the Coder app token, which has no access to solana-rpc.
 sb=/workspaces/git/superbank
