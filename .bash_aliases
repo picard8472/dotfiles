@@ -24,6 +24,14 @@ git config --global user.name "$USERNAME_GIT"
 # In superbank, use the gh login token, not the Coder app token, which has no access to solana-rpc.
 gh() { case "$PWD" in /workspaces/git/superbank*) GH_TOKEN_NO_CODER=1 command gh "$@";; *) command gh "$@";; esac; }
 
+# In superbank, git uses the gh login token, not the Coder app token, which has no access to solana-rpc.
+sb=/workspaces/git/superbank
+if [ -d "$sb/.git" ] && ! git -C "$sb" config --local --get-all credential.https://github.com.helper | grep -q 'gh auth git-credential'; then
+  git -C "$sb" config --local --add credential.https://github.com.helper ''
+  git -C "$sb" config --local --add credential.https://github.com.helper '!env -u GH_TOKEN -u GITHUB_TOKEN GH_TOKEN_NO_CODER=1 gh auth git-credential'
+fi
+unset sb
+
 ans() {
   ansible "$@" | ct
 }
