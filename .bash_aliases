@@ -83,3 +83,6 @@ if [ -n "$BASH_VERSION" ] && [ -t 1 ] && command -v zsh >/dev/null 2>&1; then
   export SHELL="$(command -v zsh)"
   exec zsh
 fi
+
+# Interactive bash hands over to zsh, because Orca starts terminals with the boot-time SHELL=/bin/bash.
+if [[ $- == *i* && -z ${ZSH_VERSION:-} && -z ${NO_ZSH:-} && -x /usr/bin/zsh ]]; then export SHELL=/usr/bin/zsh; exec /usr/bin/zsh -l; fi
